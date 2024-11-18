@@ -3,10 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECOMMERCE</title>
-    <link rel="stylesheet" href="/styles/style.css">
+    <title>Silque - Tienda de Ropa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <h1>Pagina de leo</h1>
+    <!-- Barra de Navegación -->
+    <header class="navbar">
+        <div class="logo"><img height="40rem" style="padding-bottom: 0.5rem; margin-right: 0.5rem;" src="{{ url_for('static', filename='images/LOGO.png') }}" alt="Logo de la pagina">Silque</div>
+        <nav>
+            <ul>
+                <li><a href="#">¿Por qué Silque?</a></li>
+                <li><a href="#">Precios</a></li>
+                <li><a href="#">Integraciones</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </nav>
+        <button class="demo-button">Solicitar Demo</button>
+    </header>
+    
+    <!-- Sección de Inicio -->
+    <section class="hero">
+        <div class="hero-text" style="margin-right: 10rem;">
+            <h1>Explora tu estilo, crea confianza y viste con Silque</h1>
+            <br>
+            <p>Encuentra tu look ideal, gana confianza y exprésate a través de la moda.</p>
+            <button class="cta-button"><a href="/compra/index.html" style="color: white; text-decoration: none;">Descubre ahora →</a></button>
+            <p class="no-credit">No necesitas tarjeta de crédito</p>
+        </div>
+        <div class="hero-image">
+            <!-- Carrusel de imágenes -->
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="https://img.freepik.com/free-photo/medium-shot-woman-wearing-jacket_23-2149190433.jpg" alt="Imagen 1">
+                    <img src="https://img.freepik.com/free-photo/woman-wearing-trendy-coat-sunglasses_23-2149190435.jpg" alt="Imagen 2">
+                    <img src="https://img.freepik.com/free-photo/young-woman-trendy-outfit_23-2149190434.jpg" alt="Imagen 3">
+                </div>
+                <!-- Flechas de navegación -->
+                <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+                <button class="next" onclick="changeSlide(1)">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // JavaScript para controlar el carrusel
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-images img');
+        
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.opacity = i === index ? '1' : '0';
+                slide.style.display = 'block';
+            });
+        }
+
+        function changeSlide(direction) {
+            slideIndex = (slideIndex + direction + slides.length) % slides.length;
+            showSlide(slideIndex);
+        }
+
+        function autoSlide() {
+            changeSlide(1);
+            setTimeout(autoSlide, 3000); // Cambia cada 3 segundos
+        }
+
+        // Inicializa el carrusel
+        showSlide(slideIndex);
+        autoSlide();
+    </script>
 </body>
 </html>

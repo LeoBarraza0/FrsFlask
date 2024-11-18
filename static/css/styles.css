@@ -1,0 +1,188 @@
+/* Archivo: styles.css */
+
+/* Colores de la paleta */
+:root {
+    --background-color: #FAF6E3;
+    --accent-light: #D8DBBD;
+    --accent-medium: #B59F78;
+    --accent-dark: #2A3663;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--accent-dark);
+}
+
+/* Barra de Navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+    background-color: rgba(216, 219, 189, 0.7); /* Fondo claro con opacidad */
+    font-size: 1rem;
+    border-radius: 12px; /* Bordes redondeados */
+    margin: 1rem 3rem; /* Espacio para que no toque los bordes de la pantalla */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+}
+
+.logo {
+    font-size: 1.8rem;
+    color: var(--accent-dark);
+    font-weight: bold;
+    display: flex;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar ul li {
+    margin-left: 2rem;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: var(--accent-dark);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.demo-button {
+    padding: 0.6rem 1.2rem;
+    color: white;
+    background-color: var(--accent-dark);
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem 3rem;
+    background-color: var(--background-color);
+}
+
+.hero-text {
+    max-width: 50%;
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    color: var(--accent-dark);
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.hero-text p {
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    color: var(--accent-medium);
+}
+
+.cta-button {
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.8rem;
+    font-size: 1.1rem;
+    color: white;
+    background-color: var(--accent-dark);
+    border: none;
+    border-radius: 10rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.no-credit {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: var(--accent-light);
+}
+
+/* Imagen de la sección Hero */
+.hero-image {
+    width: 200rem;
+    height: 40rem;
+    background-color: var(--accent-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+
+}
+.hero-image image{
+
+    object-position: top;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+/* Estilos del carrusel */
+.carousel {
+    position: relative;
+    width: 50rem; /* Coincide con el ancho de las imágenes */
+    height: 50rem; /* Coincide con el alto de las imágenes */
+    overflow: hidden;
+}
+
+.carousel-images img {
+    width: 50rem;
+    height: 50rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.7s ease; /* Transición suave */
+    object-fit: cover; /* Ajusta la imagen para llenar el espacio definido */
+}
+
+
+.carousel .prev, .carousel .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0); /* Translucidez */
+    color: white;
+    font-size: 2rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 50%; /* Bordes redondeados */
+    transition: background-color 0.3s ease;
+}
+
+.carousel .prev {
+    left: 15px;
+}
+
+.carousel .next {
+    right: 15px;
+}
+
+/* Efecto hover para las flechas */
+.carousel .prev:hover, .carousel .next:hover {
+    color: rgba(216, 219, 189, 0.9); /* Aumenta la opacidad al pasar el cursor */
+}
+
+/* Mostrar la imagen activa */
+.carousel-images img.active {
+    opacity: 1;
+    z-index: 1;
+}
