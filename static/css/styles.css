@@ -113,8 +113,8 @@ body {
 
 /* Imagen de la sección Hero */
 .hero-image {
-    width: 200rem;
-    height: 40rem;
+    width: 150rem;
+    height: 30rem;
     background-color: var(--accent-light);
     display: flex;
     align-items: center;
@@ -136,14 +136,14 @@ body {
 /* Estilos del carrusel */
 .carousel {
     position: relative;
-    width: 50rem; /* Coincide con el ancho de las imágenes */
-    height: 50rem; /* Coincide con el alto de las imágenes */
+    width: 40rem; /* Coincide con el ancho de las imágenes */
+    height: 20rem; /* Coincide con el alto de las imágenes */
     overflow: hidden;
 }
 
 .carousel-images img {
-    width: 50rem;
-    height: 50rem;
+    width: 40rem;
+    height: 20rem;
     position: absolute;
     top: 0;
     left: 0;
