@@ -1,7 +1,9 @@
 let iconCart = document.querySelector('.iconCart');
+let iconImg = document.querySelector('.listProduct .item img');
 let cart = document.querySelector('.cart');
 let container = document.querySelector('.container');
 let close = document.querySelector('.close');
+
 
 iconCart.addEventListener('click', function(){
     if(cart.style.right == '-100%'){
@@ -10,7 +12,7 @@ iconCart.addEventListener('click', function(){
     }else{
         cart.style.right = '-100%';
         container.style.transform = 'translateX(0)';
-    }
+    }   
 })
 close.addEventListener('click', function (){
     cart.style.right = '-100%';
