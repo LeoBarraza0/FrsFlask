@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Silque</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="registro-body">
+    <h1 class="registro-title" style="margin-bottom: 5%;">Crea tu Cuenta</h1>
+    <div class="registro-container">
+
+        <!-- Formulario -->
+        <form id="registerForm" action="/static/compra/productos.html" method="get" class="registro-form-container">
+            <div class="registro-form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" placeholder="Ingresa tu nombre" required>
+            </div>
+            <div class="registro-form-group">
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos" placeholder="Ingresa tus apellidos" required>
+            </div>
+            <div class="registro-form-group">
+                <label for="genero">Género:</label>
+                <select id="genero" required>
+                    <option value="">Selecciona tu género</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+            <div class="registro-form-group">
+                <label for="anoNacimiento">Año de Nacimiento:</label>
+                <input type="number" id="anoNacimiento" placeholder="Ingresa tu año de nacimiento" required>
+            </div>
+            <div class="registro-form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" placeholder="Ingresa tu teléfono" required>
+            </div>
+            <div class="registro-form-group">
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" placeholder="Ingresa tu correo" required>
+            </div>
+            <button type="submit" class="registro-buttonRegister">Registrar</button>
+            <p style="text-align: center;">¿Ya tienes cuenta? <a href="/static/compra/login.html">Inicia sesión aquí</a></p>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer-registro">
+        <div class="footer-links">
+            <a href="#">Condiciones de uso</a>
+            <a href="#">Aviso de privacidad</a>
+            <a href="#">Ayuda</a>
+        </div>
+        <div class="footer-copy">
+            © 2024 Silque, Emanuel, Leonardo
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", function(event) {
+            var nombre = document.getElementById("nombre").value;
+            var apellidos = document.getElementById("apellidos").value;
+            var genero = document.getElementById("genero").value;
+            var anoNacimiento = document.getElementById("anoNacimiento").value;
+            var telefono = document.getElementById("telefono").value;
+            var correo = document.getElementById("correo").value;
+
+            if (!nombre || !apellidos || !genero || !anoNacimiento || !telefono || !correo) {
+                alert("Por favor, completa todos los campos.");
+                event.preventDefault(); // Evita que se envíe el formulario
+            }
+        });
+    </script>
+</body>
+</html>
+

@@ -247,3 +247,108 @@ header .iconCart{
     font-size: large;
     font-weight: bold;
 }
+
+/* Login.html*/
+body.registro-body {
+    background-color: #5358b3;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1.registro-title {
+    position: relative;
+    top: 20px; /* Ajusta la posición del h1 */
+    text-align: center;
+    color: #FAF6E3;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.registro-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 90%;
+}
+
+.registro-form-container {
+    max-width: 500px;
+    background: #FAF6E3;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    flex: 1;
+}
+
+.registro-form-group {
+    margin-bottom: 15px;
+}
+
+.registro-form-group label {
+    color: #2A3663;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.registro-form-group input, 
+.registro-form-group select {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.registro-buttonRegister {
+    background: linear-gradient(45deg, #5358b3, #FAF6E3);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.registro-buttonRegister:hover {
+    background: linear-gradient(45deg, #FAF6E3, #5358b3);
+    transform: scale(1.05);
+}
+
+.registro-image img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+#footer-registro {
+    text-align: center;
+    background: #FAF6E3;
+    color: #5358b3;
+    padding: 10px;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+    position: fixed;
+    bottom: 1px; /* Fija el footer a la parte inferior */
+    width: 120%; /* Asegura que cubra todo el ancho */
+    margin-left: 0%; /* Centra el footer nuevamente */
+}
+
+#footer-registro a {
+    color: #5358b3;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+#footer-registro a:hover {
+    text-decoration: underline;
+}
