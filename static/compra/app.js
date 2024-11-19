@@ -4,6 +4,22 @@ let cart = document.querySelector('.cart');
 let container = document.querySelector('.container');
 let close = document.querySelector('.close');
 
+fetch('http://127.0.0.1:5000/productos')
+.then(response => response.json())
+.then(data => {
+    const productosDiv = document.getElementById('productos');
+    data.forEach(producto => {
+        const productoHTML = `
+            <div>
+                <h2>${producto.nombre}</h2>
+                <p>${producto.descripcion}</p>
+                <p>Precio: $${producto.precio}</p>
+            </div>
+        `;
+        productosDiv.innerHTML += productoHTML;
+    });
+})
+.catch(error => console.error('Error:', error));
 
 iconCart.addEventListener('click', function(){
     if(cart.style.right == '-100%'){
