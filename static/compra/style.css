@@ -167,7 +167,7 @@ header .totalQuantity{
     padding: 20px;
 }
 .checkoutLayout .right{
-    background-color: #5358B3;
+    background-color: #5358b3;
     border-radius: 20px;
     padding: 40px;
     color: #fff;
@@ -240,3 +240,151 @@ header .totalQuantity{
     font-size: large;
     font-weight: bold;
 }
+
+
+/* Para los botones de iniciar sesión y de descubre ahora*/
+.demo-button {
+    background-color: #E8BC0E; /* Color de fondo */
+    color: #000; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    border: none; /* Sin bordes */
+    border-radius: 5px; /* Bordes redondeados */
+    font-weight: bold; /* Texto en negrita */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s ease; /* Animación suave */
+}
+
+.demo-button:hover {
+    background-color: #d4a50c; /* Color al pasar el cursor */
+}
+
+header button {
+    background-color: #E8BC0E; /* Color de fondo */
+    color: #000; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    border: none; /* Sin bordes */
+    border-radius: 5px; /* Bordes redondeados */
+    font-weight: bold; /* Texto en negrita */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s ease; /* Animación suave */
+}
+
+/* Efecto al pasar el cursor */
+header button:hover {
+    background-color: #d4a50c; /* Color al pasar el cursor */
+}
+
+.demo-button a {
+    color: inherit; /* Hereda el color del botón */
+    text-decoration: none; /* Elimina el subrayado */
+}
+
+.demo-button a:focus, .demo-button a:hover {
+    color: inherit; /* Mantiene el color original cuando se pasa el mouse o se hace clic */
+    text-decoration: none; /* Elimina el subrayado al hacer clic */
+}
+
+body {
+    background-color: #5358b3;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1 {
+    position: relative;
+    top: 20px; /* Ajusta la posición del h1 */
+    text-align: center;
+    color: #FAF6E3;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 90%;
+}
+
+.form-container {
+    max-width: 500px;
+    background: #FAF6E3;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    flex: 1;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    color: #2A3663;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group select {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.buttonRegister {
+    background: linear-gradient(45deg, #5358b3, #FAF6E3);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.buttonRegister:hover {
+    background: linear-gradient(45deg, #FAF6E3, #5358b3);
+    transform: scale(1.05);
+}
+
+.image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image img {
+    width: 150%;
+    max-width: 380px; /* Tamaño máximo ajustado */
+    height: auto; /* Mantiene proporción */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+p {
+    text-align: center;
+    margin-top: 10px;
+    color: #2A3663;
+}
+
+a {
+    color: #E8BC0E;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
