@@ -30,4 +30,11 @@
         "price": 120,
         "image": "https://m.media-amazon.com/images/I/61fIzCQod0L._AC_SX679_.jpg"
     }
+    ,
+    {
+        "id": 5,
+        "name": "Product 5",
+        "price": 120,
+        "image": "https://m.media-amazon.com/images/I/61fIzCQod0L._AC_SX679_.jpg"
+    }
 ]
