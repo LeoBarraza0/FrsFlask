@@ -1,5 +1,5 @@
-#from distutils.log import Log
-#from ensurepip import bootstrap
+from distutils.log import Log
+from ensurepip import bootstrap
 import os
 import bcrypt
 from flask import Flask
@@ -24,6 +24,6 @@ def create_app(config_type):
     bootstrap.init_app(app)
     login_manager.init_app(app)
     bcrypt.init_app(app)
-    from login.app import authentication
+    from app.auth import authentication
     app.register_blueprint(authentication)
     return app

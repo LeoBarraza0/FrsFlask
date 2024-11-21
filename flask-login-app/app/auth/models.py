@@ -7,8 +7,10 @@ class User(UserMixin, db.Model):
     __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True)
+    user_name = db.Column(db.String(20))
     user_email = db.Column(db.String(60), unique=True,index=True)
     user_password = db.Column(db.String(80))
+    create_date = db.Column(db.DateTime, default=datetime.now)
 
     def check_password(self, password):
         return bcrypt.check_password_hash(self.user_password, password)
@@ -21,7 +23,7 @@ class User(UserMixin, db.Model):
         )
 
         db.session.add(user)
-        db.session.commit("Se ha agregado un usuario")
+        db.session.commit()
         return user
 
 

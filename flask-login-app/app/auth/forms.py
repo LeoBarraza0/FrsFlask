@@ -14,7 +14,7 @@ def email_exists(form, field):
 
 
 class RegistrationForm(FlaskForm):
-    name = StringField("Nombre", validators=[DataRequired(), Length(4,16, message="De 4 a 16 letras")])
+    name = StringField("Name", validators=[DataRequired(), Length(4,16, message="Between 4 to 16 characters")])
     email = StringField("E-mail", validators=[DataRequired(), Email(), email_exists])
     password = PasswordField("Password", validators=[DataRequired(), EqualTo("confirm", message="Password must match!!!")])
     confirm = PasswordField("Confirm", validators=[DataRequired()])
