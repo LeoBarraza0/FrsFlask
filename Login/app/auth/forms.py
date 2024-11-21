@@ -3,7 +3,7 @@ from flask import Flask
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField, BooleanField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
-from app.auth.models import User
+from Login.app.auth.models import User
 
 def email_exists(form, field):
     email = User.query.filter_by(user_email=field.data).first()

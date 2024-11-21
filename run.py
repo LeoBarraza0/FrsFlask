@@ -1,32 +1,21 @@
-'''
-#from flask import Flask, render_template
-from flask_cors import CORS
+from flask import Flask, render_template 
+from Login.app import create_app, db 
+from Login.app.auth.models import User 
 
-# Crear la aplicación Flask
-app = Flask(__name__)
-CORS(app)
+app = create_app("prod") 
+print(f"Carpeta estática por defecto: {app.static_folder}")
 
-# Ruta para renderizar el índice
-@app.route('/')
-def index():
-    return render_template('menuprod.html')
-
-# Iniciar la aplicación
-if __name__ == "__main__":
-    app.run(debug=True)#
-'''
-from venv import create
-from login.app import create_app, db
-from login.app.auth.models import User
-
-
-flask_scrapy_app =  create_app("prod")
-with flask_scrapy_app.app_context():
-    db.create_all()
+with app.app_context(): 
+    db.create_all() 
     if not User.query.filter_by(user_name="test").first():
-        User.create_user(
-            user="test",
-            email="test-testing@test.com",
-            password="test**123"
-        )
-flask_scrapy_app.run()
+        User.create_user( 
+            user="test", 
+            email="test-testing@test.com", 
+            password="test**123" 
+            )
+        
+@app.route('/') 
+def menuprod(): 
+    return render_template('menuprod.html') 
+
+if __name__ == '__main__': app.run(debug=True)
