@@ -20,6 +20,7 @@ def register_user():
 @authentication.route("/") 
 def index(): 
     return render_template("menuprod.html") 
+
 @authentication.route("/login", methods=["GET", "POST"]) 
 def log_in_user(): 
     if current_user.is_authenticated: 
@@ -34,6 +35,7 @@ def log_in_user():
         login_user(user, form.stay_loggedin.data) 
         return redirect(url_for("authentication.homepage")) 
     return render_template("login.html", form=form) 
+
 @authentication.route("/homepage") 
 @login_required 
 def homepage(): 
