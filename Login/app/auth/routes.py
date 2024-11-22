@@ -37,7 +37,6 @@ def log_in_user():
     return render_template("login.html", form=form) 
 
 
-
 @authentication.route("/homepage") 
 @login_required 
 def homepage(): 
