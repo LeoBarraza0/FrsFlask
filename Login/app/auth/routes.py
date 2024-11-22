@@ -10,7 +10,7 @@ import requests
 def register_user(): 
     if current_user.is_authenticated: 
         flash("You are already logged in the system") 
-        return redirect(url_for("authentication.homepage")) 
+        return redirect(url_for("authentication.log_in_user")) 
     form = RegistrationForm() 
     if form.validate_on_submit(): 
         User.create_user( user=form.name.data, email=form.email.data, password=form.password.data ) 
@@ -36,10 +36,12 @@ def log_in_user():
         return redirect(url_for("authentication.homepage")) 
     return render_template("login.html", form=form) 
 
+
+
 @authentication.route("/homepage") 
 @login_required 
 def homepage(): 
-    return render_template("homepage.html") 
+    return render_template('homepage.html') 
 @authentication.route("/logout", methods=["GET"]) 
 @login_required 
 def log_out_user(): 
@@ -64,3 +66,8 @@ def scrapy_data():
 @authentication.app_errorhandler(404) 
 def page_not_found(error): 
     return render_template('404.html'), 404
+
+@authentication.route("/comprar") 
+@login_required 
+def comprar(): 
+    return render_template('checkout.html') 

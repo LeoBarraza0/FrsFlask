@@ -4,6 +4,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap 
 from flask_login import LoginManager 
 from flask_bcrypt import Bcrypt 
+from flask_cors import CORS
+
 
 db = SQLAlchemy() 
 bootstrap = Bootstrap() 
@@ -20,6 +22,7 @@ def create_app(config_type):
     bootstrap.init_app(app) 
     login_manager.init_app(app)
     bcrypt.init_app(app) 
+    CORS(app)  # Habilitar CORS para todas las rutas
     from Login.app.auth import authentication 
     app.register_blueprint(authentication) 
     return app
