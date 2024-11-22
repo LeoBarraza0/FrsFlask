@@ -70,3 +70,13 @@ def page_not_found(error):
 @login_required 
 def comprar(): 
     return render_template('checkout.html') 
+
+@authentication.route("/pago") 
+@login_required 
+def pagar(): 
+    return render_template('pago.html') 
+
+@authentication.route("/productos") 
+@login_required 
+def productos(): 
+    return render_template('productos.html') 
