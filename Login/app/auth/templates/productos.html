@@ -1,117 +1,177 @@
 {% extends 'header.html' %} {% block content %}
-<!-- inicio de contenido -->
-<div class="container py-5">
+<!-- Estilos -->
+<style>
+    .listProduct {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 10px !important;
+    }
+    .listProduct .item img{
+        width: 100%;
+        height: 9rem;
+        object-fit: contain;
+        border-radius: 1rem;
+    }
+    .listProduct .item button{
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        font-weight: bold;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background-color: #B59F78;
+        color: #ffffff;
+        width: 50%;
+        border: none;
+        padding: 10px 20px;
+        box-shadow: 0 10px 50px #383125;
+        cursor: pointer;
+        transform: translateX(-50%) translateY(50px) !;
+        opacity: 0;
+    }
+    .cart{
+        width: 380px;
+    }
+    .col-lg-3{
+        width: 15%;
+    }
+    .listProduct{
+        width: 100%;
+    }
+    .container{
+        width: 100%;
+    }
+    .col-lg-9{
+        width: 80%;
+        padding-left: 5%;
+    }
+</style>
+<div style="margin-right: 0 !important;margin-left: 5% !important;" class="container py-5">
+<div style="display: flex; justify-content: start;align-items: start;">
+
+<div class="col-lg-3">
+    <h1 class="h2 pb-4">Categorias</h1>
+    <ul class="list-unstyled templatemo-accordion">
+        <li class="pb-3">
+            <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                Genero
+                <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
+            </a>
+            <ul class="collapse show list-unstyled pl-3">
+                <li><a class="text-decoration-none" href="#"><details>
+                    <summary>Hombres</summary>
+                    <p>Nuestras colecciones están diseñadas para todos</p>
+                </details></a></li>
+                <li><a class="text-decoration-none" href="#"><details>
+                    <summary>Mujeres</summary>
+                    <p>Descubre los sombreros para mujer ideales para cada temporada del año.</p>
+                </details></a></li>
+            </ul>
+        </li>
+        <li class="pb-3">
+            <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                Ventas
+                <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
+            </a>
+            <ul id="collapseTwo" class="collapse list-unstyled pl-3">
+                <li><a class="text-decoration-none" href="#"><details>
+                    <summary>Ventas</summary>
+                    <p>Envíos Gratis en el día ✓ Compre Sombrero en cuotas sin interés! ✓ Conozca nuestras increíbles ofertas y promociones en millones de ✓ productos.</p>
+                </details></a></li>
+                
+            </ul>
+        </li>
+        <li class="pb-3">
+            <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                Productos
+                <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
+            </a>
+            <ul id="collapseThree" class="collapse list-unstyled pl-3">
+                <li><a class="text-decoration-none" href="#"><details>
+                    <summary>Productos</summary>
+                    <p>En ProdArt, la calidad en nuestros productos es una obligación.</p>
+                </details></a></li>
+                
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class="col-lg-9">
     <div class="row">
 
-        <div class="col-lg-3">
-            <h1 class="h2 pb-4">Categorias</h1>
-            <ul class="list-unstyled templatemo-accordion">
-                <li class="pb-3">
-                    <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
-                        Genero
-                        <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
-                    </a>
-                    <ul class="collapse show list-unstyled pl-3">
-                        <li><a class="text-decoration-none" href="#"><details>
-                            <summary>Hombres</summary>
-                            <p>Nuestras colecciones están diseñadas para todos</p>
-                        </details></a></li>
-                        <li><a class="text-decoration-none" href="#"><details>
-                            <summary>Mujeres</summary>
-                            <p>Descubre los sombreros para mujer ideales para cada temporada del año.</p>
-                        </details></a></li>
-                    </ul>
-                </li>
-                <li class="pb-3">
-                    <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
-                        Ventas
-                        <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
-                    </a>
-                    <ul id="collapseTwo" class="collapse list-unstyled pl-3">
-                        <li><a class="text-decoration-none" href="#"><details>
-                            <summary>Ventas</summary>
-                            <p>Envíos Gratis en el día ✓ Compre Sombrero en cuotas sin interés! ✓ Conozca nuestras increíbles ofertas y promociones en millones de ✓ productos.</p>
-                        </details></a></li>
-                        
-                    </ul>
-                </li>
-                <li class="pb-3">
-                    <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
-                        Productos
-                        <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
-                    </a>
-                    <ul id="collapseThree" class="collapse list-unstyled pl-3">
-                        <li><a class="text-decoration-none" href="#"><details>
-                            <summary>Productos</summary>
-                            <p>En ProdArt, la calidad en nuestros productos es una obligación.</p>
-                        </details></a></li>
-                        
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <div class="col-lg-9">
-            <div class="row">
-
-                <div class="col-md-6 pb-4">
-                    <div class="d-flex">
-                        <select id="filtro" class="form-control">
-                            <option value="todas">Todas</option>
-                            <option value="sombreros">Sombreros</option>
-                            <option value="mochilas">Mochilas</option>
-                            <option value="bolsos">Bolsos</option>
-                            <option value="hamacas">Hamacas</option>
-                            <option value="plateria">Platería</option>
-                            <option value="tapetes">Tapetes</option>
-                            
-                        </select>
-                    </div>
-                </div>
+        <div class="col-md-6 pb-4">
+            <div class="d-flex">
+                <select id="filtro" class="form-control">
+                    <option value="todas">Todas</option>
+                    <option value="sombreros">Sombreros</option>
+                    <option value="mochilas">Mochilas</option>
+                    <option value="bolsos">Bolsos</option>
+                    <option value="hamacas">Hamacas</option>
+                    <option value="plateria">Platería</option>
+                    <option value="tapetes">Tapetes</option>
+                    
+                </select>
             </div>
-            <!-- productos en el carro -->
-            <!-- fin de productos -->
-             <!-- carrito -->
-             <div class="container">
-                <div class="row">
-                    <!-- Elementos generados a partir del JSON -->
-                    <main id="items" class="col-sm-8 row"></main>
-                    <!-- Carrito -->
-                    <aside class="col-sm-4">
-                        <h3>Carrito</h3>
-                        <!-- Elementos del carrito -->
-                        <ul id="carrito" class="list-group"></ul>
-                        <hr>
-                        <!-- Precio total -->
-                        <p class="text-right">Total: $ <span id="total"></span></p>
-                        <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
-                        <button class="btn btn-info">
-                        <a href="/pago" target="target_blank">Pagar</a>
-                        </button>
-                        <button class="btn btn-info">
-                        <a href="https://www.paypal.com/invoice/p/#X9AMTLCL84389TKX" target="target_blank">Pagar</a>
-                        </button>
-        
-                    </aside>
-                </div>
-            </div>
-<!-- paginacion -->
-            <div class="row">
-                <ul class="pagination pagination-lg justify-content-end">
-                    <li class="page-item disabled">
-                        <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="#">1</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="#">2</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="#">3</a>
-                    </li>
-                </ul>
-            </div>
-
         </div>
     </div>
+    <!-- productos en el carro -->
+    <!-- fin de productos -->
+     <!-- carrito -->
+     <div class="container">
+        <div class="row">
+            <!-- Elementos generados a partir del JSON -->
+            <main id="items">
+                <div class="container">
+                    <br /><br />
+                    <div>
+                      <h2>Todos los productos</h2>
+                    </div>
+                    <br />
+                    <div class="listProduct">
+                      <div class="item">
+                        <img
+                          src="{{ url_for('static', filename='compra/images/1.webp') }}"
+                          alt=""
+                        />
+                        <h2>CoPilot / Black / Automatic</h2>
+                        <div class="price">$550</div>
+                        <button>Añadir al carrito</button>
+                      </div>
+                    </div>
+                  </div>
+              
+                  <div class="cart">
+                    <h2>Carrito</h2>
+              
+                    <div class="listCart">
+                      <div class="item">
+                        <img src="{{ url_for('static', filename='compra/images/1.webp')}}" />
+                        <div class="content">
+                          <div class="name">CoPilot / Black / Automatic</div>
+                          <div class="price">$550 / 1 product</div>
+                        </div>
+                        <div class="quantity">
+                          <button>-</button>
+                          <span class="value">3</span>
+                          <button>+</button>
+                        </div>
+                      </div>
+                    </div>
+              
+                    <div class="buttons">
+                      <div class="close">Cerrar</div>
+                      <div class="checkout">
+                        <a href="/comprar">Comprar</a>
+                      </div>
+                    </div>
+                  </div>
+
+            </main>
+        </div>
+    </div>
+</div>
+</div>
 </div>
 
 

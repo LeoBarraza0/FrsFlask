@@ -1,25 +1,8 @@
 let iconCart = document.querySelector('.iconCart');
-let iconImg = document.querySelector('.listProduct .item img');
 let cart = document.querySelector('.cart');
 let container = document.querySelector('.container');
 let close = document.querySelector('.close');
 
-fetch('http://127.0.0.1:5000/homepage')
-    .then(response => response.json())
-    .then(data => {
-        const productosDiv = document.getElementById('productos');
-        data.productos.forEach(producto => {
-            const productoHTML = `
-                <div>
-                    <h2>${producto.nombre}</h2>
-                    <p>${producto.descripcion}</p>
-                    <p>Precio: $${producto.precio}</p>
-                </div>
-            `;
-            productosDiv.innerHTML += productoHTML;
-        });
-    })
-    .catch(error => console.error('Error:', error));
 
 iconCart.addEventListener('click', function(){
     if(cart.style.right == '-100%'){
@@ -28,7 +11,8 @@ iconCart.addEventListener('click', function(){
     }else{
         cart.style.right = '-100%';
         container.style.transform = 'translateX(0)';
-    }   
+    }
+
 })
 close.addEventListener('click', function (){
     cart.style.right = '-100%';
@@ -61,7 +45,7 @@ function addDataToHTML(){
             `<img src="${product.image}" alt="">
             <h2>${product.name}</h2>
             <div class="price">$${product.price}</div>
-            <button onclick="addCart(${product.id})">Añadir</button>`;
+            <button onclick="addCart(${product.id})">Add To Cart</button>`;
 
             listProductHTML.appendChild(newProduct);
 

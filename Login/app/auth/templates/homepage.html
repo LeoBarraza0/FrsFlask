@@ -27,6 +27,12 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='assets/css/fontawesome.min.css') }}"
     />
+    <style>
+      .body-shift {
+        transform: translateX(-300px); /* Ajusta el valor según el ancho de tu carrito */
+        transition: transform 0.3s ease; /* Animación suave */
+      }
+    </style>
   </head>
 
   <body>
@@ -493,7 +499,6 @@
         <script src="{{ url_for('static', filename='assets/js/jquery-1.11.0.min.js') }}"></script>
         <script src="{{ url_for('static', filename='assets/js/templatemo.js') }}"></script>
         <script src="{{ url_for('static', filename='assets/js/custom.js') }}"></script>
-        <script src="{{ url_for('static', filename='assets/js/carrito.js') }}"></script>
       </div>
       <div class="w-100 bg-black py-3">
         <div class="container">

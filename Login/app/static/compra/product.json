@@ -3,13 +3,13 @@
         "id": 1,
         "name": "Product 1",
         "price": 520,
-        "image": "https://hmcolombia.vtexassets.com/arquivos/ids/3070066/Camiseta-Relaxed-Fit---Verde-oscuro---H-M-CO.jpg?v=638320933354200000"
+        "image": "https://img.freepik.com/fotos-premium/gorro-invierno-tejido-lana-sobre-fondo-blanco_917664-32244.jpg"
     },
     {
         "id": 2,
         "name": "Product 2",
         "price": 220,
-        "image": "https://img.kwcdn.com/thumbnail/s/5c0b76901a2481673ddc889288adbc52_c8ab46b8a199.jpg?imageView2/2/w/800/q/70/format/webp"
+        "image": "https://thumbs.dreamstime.com/b/male-underwear-isolated-white-background-52008217.jpg"
     },
     {
         "id": 3,
@@ -20,9 +20,9 @@
     ,
     {
         "id": 4,
-        "name": "Product 4",
+        "name": "Camisa negra",
         "price": 420,
-        "image": "https://w7.pngwing.com/pngs/954/458/png-transparent-league-of-legends-hoodie-riot-games-t-shirt-video-game-league-of-legends-thumbnail.png"
+        "image": "https://monarca.com.co/wp-content/uploads/2023/11/016515DELNEGRO.jpg"
     },
     {
         "id": 5,
@@ -32,8 +32,32 @@
     }
     ,
     {
-        "id": 5,
+        "id": 6,
         "name": "Product 5",
+        "price": 120,
+        "image": "https://m.media-amazon.com/images/I/61fIzCQod0L._AC_SX679_.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Product 5",
+        "price": 120,
+        "image": "https://m.media-amazon.com/images/I/61fIzCQod0L._AC_SX679_.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Product 5",
+        "price": 120,
+        "image": "https://m.media-amazon.com/images/I/61fIzCQod0L._AC_SX679_.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Product 5",
+        "price": 120,
+        "image": "https://m.media-amazon.com/images/I/61fIzCQod0L._AC_SX679_.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Product 10",
         "price": 120,
         "image": "https://m.media-amazon.com/images/I/61fIzCQod0L._AC_SX679_.jpg"
     }
