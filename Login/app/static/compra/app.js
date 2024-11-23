@@ -2,6 +2,7 @@ let iconCart = document.querySelector('.iconCart');
 let cart = document.querySelector('.cart');
 let container = document.querySelector('.container');
 let close = document.querySelector('.close');
+let agregar = document.getElementById('agregarP');
 
 
 iconCart.addEventListener('click', function(){
@@ -30,29 +31,30 @@ fetch('/static/compra/product.json')
 })
 
 //show datas product in list 
-function addDataToHTML(){
+function addDataToHTML() {
     // remove datas default from HTML
     let listProductHTML = document.querySelector('.listProduct');
     listProductHTML.innerHTML = '';
 
     // add new datas
-    if(products != null) // if has data
-    {
+    if (products != null) { // if has data
         products.forEach(product => {
             let newProduct = document.createElement('div');
             newProduct.classList.add('item');
             newProduct.innerHTML = 
-            `<img src="${product.image}" alt="">
+            `<a href="/ver?id=${encodeURIComponent(product.id)}&name=${encodeURIComponent(product.name)}&price=${product.price}&image=${encodeURIComponent(product.image)}">
+            <img src="${product.image}" alt="${product.name}">
+            </a>
             <h2>${product.name}</h2>
             <div class="price">$${product.price}</div>
-            <button onclick="addCart(${product.id})">Add To Cart</button>`;
-
+            <button onclick="addCart(${product.id})">Añadir</button>`;
             listProductHTML.appendChild(newProduct);
-
         });
     }
+    
 }
-//use cookie so the cart doesn't get lost on refresh page
+
+
 
 
 let listCart = [];

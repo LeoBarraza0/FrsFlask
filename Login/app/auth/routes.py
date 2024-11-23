@@ -79,4 +79,9 @@ def pagar():
 @authentication.route("/productos") 
 @login_required 
 def productos(): 
-    return render_template('productos.html') 
+    return render_template('productos.html')
+
+@authentication.route("/ver") 
+@login_required 
+def ver(): 
+    return render_template('productos2.html') 
