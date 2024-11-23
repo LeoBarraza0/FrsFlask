@@ -3,27 +3,79 @@ from Login.app import db, bcrypt
 from Login.app import login_manager
 from flask_login import UserMixin
 
-class Product(db.Model):
-    __tablename__ = "products"
+class Producto(db.Model):
+    __tablename__ = "producto"
 
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False)
-    price = db.Column(db.Float, nullable=False)
-    stock = db.Column(db.Integer, default=0)
-    create_date = db.Column(db.DateTime, default=datetime.now)
+    idProducto = db.Column(db.String(255), primary_key=True)
+    Descripcion = db.Column(db.String(255), nullable=False)
+    Precio = db.Column(db.Float, nullable=False)
+    Nombre = db.Column(db.String(255), nullable=False)
+    Stock = db.Column(db.BigInteger, nullable=False)
+    Referencia = db.Column(db.String(255), nullable=False)
+    Img = db.Column(db.LargeBinary, nullable=False)
+    IdProvFK = db.Column(db.Integer, db.ForeignKey('proveedor.idProv'), nullable=False)
 
-    @classmethod
-    def create_product(cls, name, price, stock):
-        product = cls(name=name, price=price, stock=stock)
-        db.session.add(product)
-        db.session.commit()
-        return product
+class Proveedor(db.Model):
+    __tablename__ = "proveedor"
 
+    idProv = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    Nombre = db.Column(db.String(255), nullable=False)
+    Direccion = db.Column(db.String(255), nullable=False)
+    Telefono = db.Column(db.String(255), nullable=False)
+    Correo = db.Column(db.String(255), nullable=False)
+    IdTipoProv = db.Column(db.String(255), db.ForeignKey('tipoproveedor.idTipoProv'), nullable=False)
+    Estado = db.Column(db.String(255), nullable=False)
+
+class TipoProveedor(db.Model):
+    __tablename__ = "tipoproveedor"
+
+    idTipoProv = db.Column(db.String(255), primary_key=True)
+    Nombre = db.Column(db.String(255), nullable=False)
+
+class DetalleTrans(db.Model):
+    __tablename__ = "detalletrans"
+
+    idDetTrans = db.Column(db.String(255), primary_key=True)
+    IdProduct = db.Column(db.Integer, db.ForeignKey('producto.idProducto'), nullable=False)
+    Cantidad = db.Column(db.BigInteger, nullable=False)
+    PrecioBruto = db.Column(db.Float, nullable=False)
+    Impuesto = db.Column(db.Float, nullable=False)
+    Neto = db.Column(db.Float, nullable=False)
+    IdTransFK = db.Column(db.Integer, db.ForeignKey('transaccion.IdTransc'), nullable=False)
+
+class Transaccion(db.Model):
+    __tablename__ = "transaccion"
+
+    IdTransc = db.Column(db.String(255), primary_key=True)
+    Fecha = db.Column(db.DateTime, nullable=False)
+    IdCliente = db.Column(db.String(255), db.ForeignKey('users.id'), nullable=False)
+    Estado = db.Column(db.String(255), nullable=False)
+    DirEnvio = db.Column(db.String(255), nullable=False)
+    MedioPago = db.Column(db.String(255), nullable=False)
+
+class Opinion(db.Model):
+    __tablename__ = "opinion"
+
+    NoCaso = db.Column(db.String(255), primary_key=True)
+    Fecha = db.Column(db.DateTime, nullable=False)
+    Descripcion = db.Column(db.String(255), nullable=False)
+    IdProductoFK = db.Column(db.String(255), db.ForeignKey('producto.idProducto'), nullable=False)
+    Calificacion = db.Column(db.BigInteger, nullable=False)
+
+class OpinionCliente(db.Model):
+    __tablename__ = "opinion_cliente"
+
+    IdOpcCli = db.Column(db.String(255), primary_key=True)
+    IdOpFK = db.Column(db.String(255), db.ForeignKey('opinion.NoCaso'), nullable=False)
+    IdClienteFK = db.Column(db.String(255), db.ForeignKey('users.id'), nullable=False)
+
+# Funciones de ejemplo para interactuar con las tablas
 def get_all_products():
-    return Product.query.all()
+    return Producto.query.all()
 
 def filtrar():
-    return Product.query.filter_by(name="Laptop").all()
+    return Producto.query.filter_by(Nombre="Laptop").all()
+
 
 
 

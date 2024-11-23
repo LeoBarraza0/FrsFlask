@@ -26,8 +26,3 @@ class LoginForm(FlaskForm):
     password= PasswordField("Password", validators=[DataRequired()])
     stay_loggedin= BooleanField("Remember Me!")
     submit= SubmitField("Login")
-
-
-class ScrapyForm(FlaskForm):
-    search_article = StringField("Article", validators=[DataRequired()])
-    submit = SubmitField("Search Article")

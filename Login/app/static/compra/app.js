@@ -55,8 +55,6 @@ function addDataToHTML() {
 }
 
 
-
-
 let listCart = [];
 function checkCart(){
     var cookieValue = document.cookie
