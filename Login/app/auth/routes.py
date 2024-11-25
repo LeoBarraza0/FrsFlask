@@ -1,7 +1,7 @@
 from flask import render_template, flash, redirect, request, url_for 
 from Login.app.auth.forms import RegistrationForm, LoginForm
 from Login.app.auth import authentication 
-from Login.app.auth.models import User 
+from Login.app.auth.models import User, Admin
 from flask_login import login_user, logout_user, login_required, current_user 
 from bs4 import BeautifulSoup 
 from lxml import etree 
@@ -22,19 +22,32 @@ def index():
     return render_template("menuprod.html") 
 
 @authentication.route("/login", methods=["GET", "POST"]) 
-def log_in_user(): 
-    if current_user.is_authenticated: 
-        flash("You are already logged in the system") 
-        return redirect(url_for("authentication.homepage")) 
-    form = LoginForm() 
-    if form.validate_on_submit(): 
-        user = User.query.filter_by(user_email=form.email.data).first() 
-        if not user or not user.check_password(form.password.data): 
-            flash("Invalid credentials...") 
-            return redirect(url_for("authentication.log_in_user")) 
-        login_user(user, form.stay_loggedin.data) 
-        return redirect(url_for("authentication.homepage")) 
-    return render_template("login.html", form=form) 
+def log_in_user():
+    if current_user.is_authenticated:
+        flash("You are already logged in the system")
+        return redirect(url_for("authentication.homepage"))
+
+    form = LoginForm()
+    if form.validate_on_submit():
+        # Verificar si es un usuario normal
+        user = User.query.filter_by(user_email=form.email.data).first()
+        
+        if user and user.check_password(form.password.data):
+            login_user(user, form.stay_loggedin.data)
+            return redirect(url_for("authentication.homepage"))
+
+        # Verificar si es un administrador
+        admin = Admin.query.filter_by(email=form.email.data).first()
+        if admin and admin.check_password(form.password.data):
+            login_user(admin, form.stay_loggedin.data)
+            return redirect(url_for("authentication.admin_dashboard"))
+
+        # Si no es válido, muestra un mensaje de error
+        flash("Invalid credentials...")
+        return redirect(url_for("authentication.log_in_user"))
+
+    return render_template("login.html", form=form)
+
 
 
 @authentication.route("/homepage") 

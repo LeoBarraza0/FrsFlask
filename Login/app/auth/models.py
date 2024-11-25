@@ -14,6 +14,9 @@ class Producto(db.Model):
     Referencia = db.Column(db.String(255), nullable=False)
     Img = db.Column(db.LargeBinary, nullable=False)
     IdProvFK = db.Column(db.Integer, db.ForeignKey('proveedor.idProv'), nullable=False)
+    
+
+
 
 class Proveedor(db.Model):
     __tablename__ = "proveedor"
@@ -107,3 +110,27 @@ class User(UserMixin, db.Model):
 @login_manager.user_loader
 def load_user(id):
     return User.query.get(int(id))
+
+
+class Admin(UserMixin, db.Model):
+    __tablename__ = "admin"
+
+    idAdmin = db.Column(db.Integer, primary_key=True)
+    nombre = db.Column(db.String(20))
+    email = db.Column(db.String(60), unique=True,index=True)
+    password = db.Column(db.String(80))
+    fechareg = db.Column(db.DateTime, default=datetime.now)
+
+    def check_password(self, password):
+        return bcrypt.check_password_hash(self.user_password, password)
+    
+    @classmethod
+    def create_admin(cls, user, email, password):
+        user = cls(nombre=user,
+                   email=email,
+                   password=bcrypt.generate_password_hash(password).decode("utf-8")
+        )
+
+        db.session.add(user)
+        db.session.commit()
+        return user
